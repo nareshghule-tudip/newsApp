@@ -1,6 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet,Dimensions} from 'react-native';
 import colorConstant from '../utility/colorConstant';
 import fonts from '../utility/fonts';
+const deviceWidth= Dimensions.get('window').width
 
 const Styles = StyleSheet.create({
   button: {
@@ -91,7 +92,8 @@ const Styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 40,
-    width: 170,
+    width: 150,
+    marginLeft:10,
     backgroundColor: colorConstant.WHITE_COLOR,
   },
   dropDownIcon: {

@@ -1,6 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import fonts from '../../utility/fonts';
 import colorConstant from '../../utility/colorConstant';
+const deviceWidth = Dimensions.get('window').width
 const styles = StyleSheet.create({
   topNewsTextStyle: {
     color: colorConstant.BLACK_COLOR,
@@ -9,9 +10,15 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   newsCategoryContainer: {
+    width: '100%',
     marginLeft: 10,
     marginBottom: 2,
   },
+  topNewsAndCountryDropDownContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  categoryListFooter: { width: 15 },
   newsCategoryCard: {
     borderRadius: 15,
     paddingVertical: 5,
@@ -20,7 +27,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 7,
     marginBottom: 2,
     shadowColor: colorConstant.BLACK_COLOR,
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.26,
     elevation: 2,
@@ -53,7 +60,7 @@ const styles = StyleSheet.create({
   },
   newsListCard: {
     shadowColor: colorConstant.BLACK_COLOR,
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.26,
     elevation: 1,
@@ -65,13 +72,15 @@ const styles = StyleSheet.create({
   },
   newsDetailsParent: {
     flex: 1,
-    padding: 16,
+    paddingLeft: 16,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
     height: 180,
   },
   newsDetails: {
     width: '100%',
     flexDirection: 'row',
-    marginTop: -5,
     height: 150,
   },
   newsHeadingDetailsContainerForImageAvailable: {
@@ -88,8 +97,6 @@ const styles = StyleSheet.create({
   newsDescription: {
     fontSize: 14,
     marginTop: 5,
-    flex: 0.85,
-    flexShrink: 1,
     fontFamily: fonts.REGULAR,
     color: colorConstant.BLACK_COLOR,
     opacity: 0.6,
@@ -98,10 +105,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   newsImage: {
-    width: 100,
+    width: deviceWidth * 0.25,
     height: 130,
     borderRadius: 5,
-    marginLeft: 10,
+    marginLeft: 6,
     alignSelf: 'center',
     backgroundColor: colorConstant.BLACK_COLOR,
   },
@@ -153,7 +160,7 @@ const styles = StyleSheet.create({
   },
   subscribeCard: {
     shadowColor: colorConstant.BLACK_COLOR,
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.26,
     elevation: 2,
@@ -216,9 +223,9 @@ const styles = StyleSheet.create({
   },
   topNewsTextAndDropDownContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: 16,
+    width: '93%'
   },
   dropDownButton: {
     marginHorizontal: 5,
@@ -257,7 +264,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  dropDownStyle: {borderRadius: 5},
+  dropDownStyle: { borderRadius: 5 },
 });
 
 export default styles;

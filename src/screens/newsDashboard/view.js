@@ -75,11 +75,9 @@ const NewsDashboardView = props => {
                 ? Styles.newsHeadingDetailsContainerForImageAvailable
                 : Styles.newsHeadingDetailsContainerForImageNotAvailable
             }>
-            <RenderText value={item.title} style={Styles.newsTitle} />
-            <RenderText
-              value={item.description}
-              style={Styles.newsDescription}
-            />
+              <Text numberOfLines={7} style={Styles.newsTitle}>
+                {item.title} {item.description ? <Text style={Styles.newsDescription}>{`\n\n${item.description}`}</Text> : null}
+              </Text>
           </View>
           <View style={Styles.newsImageParent}>
             {item.urlToImage ? (
@@ -133,18 +131,18 @@ const NewsDashboardView = props => {
       <Header />
       <ScrollView>
         <View style={Styles.newsCategoryContainer}>
+          <View style={Styles.topNewsAndCountryDropDownContainer}>
           <View style={Styles.topNewsTextAndDropDownContainer}>
             <RenderText
               value={NEWS_DASHBOARD_SCREEN.TOP_NEWS_TEXT}
               style={Styles.topNewsTextStyle}
             />
-            <View style={Styles.dropDownView}>
               <DropDown
                 data={NEWS_DASHBOARD_SCREEN.COUNTRY_LIST}
                 defaultValue={NEWS_DASHBOARD_SCREEN.COUNTRY_DEFAULT_VALUE}
                 handleDropDownValueSelection={handleCountrySelection}
               />
-            </View>
+          </View>
           </View>
           <FlatList
             showsHorizontalScrollIndicator={false}
@@ -152,6 +150,7 @@ const NewsDashboardView = props => {
             horizontal={true}
             renderItem={renderNewCategory}
             keyExtractor={(item, index) => index.toString()}
+            ListFooterComponent={<View style={Styles.categoryListFooter}/>}
           />
         </View>
         <View style={Styles.flexOne}>
